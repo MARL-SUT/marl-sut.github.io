@@ -1,6 +1,6 @@
 # MARL@SUT course website
 
-The course website for Multi-Agent Reinforcement Learning at Sharif University of Technology. It includes the course overview, proposed 14-week schedule, learning resources, assessment format, and staff section.
+The course website for Multi-Agent Reinforcement Learning at Sharif University of Technology. Its interface follows the Material for MkDocs documentation layout used by the Deep RL Course website.
 
 ## Run locally
 
@@ -22,9 +22,8 @@ npm test
 
 ## Editing course content
 
-- Course copy, schedule, resources, and staff: `app/page.tsx`
+- Main-page sections and navigation: `app/page.tsx`
 - Colors, typography, and responsive layout: `app/globals.css`
-- Page title and social metadata: `app/layout.tsx`
-- Social sharing image: `public/og.png`
+- Page title and fonts: `app/layout.tsx`
 
-Replace the “To be announced” details once the course term and staff are confirmed.
+Replace the “To be announced” details when the official course content is available.

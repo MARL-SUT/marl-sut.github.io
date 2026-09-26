@@ -19,11 +19,16 @@ test("server-renders the MARL course homepage", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>MARL@SUT — Multi-Agent Reinforcement Learning<\/title>/i);
-  assert.match(html, /Multi-Agent/);
-  assert.match(html, /Course/);
-  assert.match(html, /schedule/);
+  assert.match(html, /<title>Welcome - Multi-Agent RL Course<\/title>/i);
+  assert.match(html, /Multi-Agent RL Course/);
+  assert.match(html, /Course Description/);
+  assert.match(html, /Learning Objectives/);
+  assert.match(html, /Instructor/);
+  assert.match(html, /Guests/);
+  assert.match(html, /Schedule/);
+  assert.match(html, /Logistics &amp; Policies/);
+  assert.match(html, /Grading/);
+  assert.match(html, /Teaching Assistants/);
   assert.match(html, /Sharif University of Technology/);
-  assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });
