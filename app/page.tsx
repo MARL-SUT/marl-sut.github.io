@@ -122,14 +122,33 @@ export default function Home() {
           <h1 id="welcome">Welcome</h1>
           <p>Welcome to the Multi-Agent Reinforcement Learning course at Sharif University of Technology.</p>
 
-          <h2 id="course-description">Course Description</h2>
-          <Placeholder />
-
-          <h2 id="learning-objectives">Learning Objectives</h2>
-          <Placeholder />
+         <h2 id="course-description">Course Description</h2>
+          <p>
+          This graduate-level course, instructed by Prof. Mohammad Hossein Rohban and Moein Salimi, provides an introduction to Multi-Agent Reinforcement Learning (MARL). The course aims to familiarize students with the fundamental concepts, key challenges, and current research directions in MARL, while also giving them the opportunity to work on their own research projects. By the end of the course, students will have a solid understanding of the foundations of MARL and the major research problems currently being explored in the field.
+          </p>
 
           <h2 id="instructor">Instructor</h2>
-          <div className="profile-card"><div className="avatar-placeholder">?</div><div><strong>To be announced</strong><span>Instructor</span></div></div>
+          <div className="instructor-grid">
+            <div className="profile-card">
+              <img
+                className="profile-image"
+                src="/images/mohammad-hossein-rohban.jpg"
+                alt="Mohammad Hossein Rohban"
+              />
+              <div>
+                <strong>Mohammad Hossein Rohban</strong>
+                <span>Instructor</span>
+              </div>
+            </div>
+
+            <div className="profile-card">
+              <div className="avatar-placeholder" aria-hidden="true">MS</div>
+              <div>
+                <strong>Moein Salimi</strong>
+                <span>Instructor</span>
+              </div>
+            </div>
+          </div>
 
           <h2 id="guests">Guests</h2>
           <Placeholder />
