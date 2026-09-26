@@ -22,13 +22,12 @@ test("server-renders the MARL course homepage", async () => {
   assert.match(html, /<title>Welcome - Multi-Agent RL Course<\/title>/i);
   assert.match(html, /Multi-Agent RL Course/);
   assert.match(html, /Course Description/);
-  assert.match(html, /Learning Objectives/);
   assert.match(html, /Instructor/);
   assert.match(html, /Guests/);
   assert.match(html, /Schedule/);
-  assert.match(html, /Logistics &amp; Policies/);
   assert.match(html, /Grading/);
   assert.match(html, /Teaching Assistants/);
   assert.match(html, /Sharif University of Technology/);
+  assert.doesNotMatch(html, /Blog|Prerequisites|Workshops|Recitations/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });

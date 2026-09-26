@@ -12,7 +12,6 @@ const topNavigation = [
   "Exams",
   "Poster Session",
   "Resources",
-  "Blog",
 ];
 
 const sideNavigation = [
@@ -25,25 +24,16 @@ const sideNavigation = [
   { label: "Exams" },
   { label: "Poster Session" },
   { label: "Resources" },
-  { label: "Blog" },
 ];
 
 const tableOfContents = [
   ["course-description", "Course Description"],
-  ["learning-objectives", "Learning Objectives"],
   ["instructor", "Instructor"],
   ["guests", "Guests"],
   ["schedule", "Schedule"],
-  ["conceptual-practical", "Conceptual/Practical"],
-  ["in-depth-theoretical", "In-depth/Theoretical"],
-  ["guest-lectures", "Guest Lectures"],
-  ["logistics-policies", "Logistics & Policies"],
   ["grading", "Grading"],
-  ["main-components", "Main Components"],
-  ["bonus-components", "Bonus Components"],
   ["head-assistants", "Head Assistants"],
   ["teaching-assistants", "Teaching Assistants"],
-  ["acknowledgements", "Acknowledgements"],
 ];
 
 const marlBookUrl = "https://www.marl-book.com/";
