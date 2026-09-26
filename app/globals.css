@@ -76,6 +76,17 @@ a { color: inherit; text-decoration: none; }
 .profile-image { object-fit: cover; }
 .avatar-placeholder { align-items: center; background: var(--hover); color: var(--muted); display: flex; font-family: var(--font-code), monospace; font-size: 22px; justify-content: center; }
 .profile-card strong, .profile-card span { display: block; }.profile-card strong { font-size: 17px; }.profile-card span { color: var(--muted); font-size: 13px; margin-top: 6px; }
+.head-assistants-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.head-assistant-card { align-items: center; border: 1px solid var(--line); border-radius: 4px; display: flex; gap: 18px; padding: 18px; }
+.head-assistant-card.lead-assistant { grid-column: 1 / -1; }
+.staff-image-placeholder { align-items: center; background: var(--hover); border: 1px dashed var(--line); border-radius: 4px; color: var(--muted); display: flex; flex: 0 0 92px; font-family: var(--font-code), monospace; font-size: 20px; height: 92px; justify-content: center; width: 92px; }
+.head-assistant-card strong, .head-assistant-card span { display: block; }
+.head-assistant-card strong { font-size: 14px; }
+.head-assistant-card span { color: var(--muted); font-size: 12px; margin-top: 5px; }
+.teaching-assistants-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.teaching-assistant-card { align-items: center; border: 1px solid var(--line); border-radius: 4px; display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 16px 12px; text-align: center; }
+.teaching-assistant-card .staff-image-placeholder { flex-basis: 82px; height: 82px; width: 82px; }
+.teaching-assistant-card strong { font-size: 14px; line-height: 1.35; }
 .schedule-placeholder { border: 1px solid var(--line); border-radius: 4px; display: flex; justify-content: space-between; margin-bottom: 30px; padding: 16px 18px; }
 .schedule-placeholder span { color: var(--muted); }.schedule-placeholder strong { font-size: 14px; }
 .page-navigation { border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; margin-top: 60px; padding-top: 18px; }
@@ -111,7 +122,14 @@ a { color: inherit; text-decoration: none; }
   .course-content { padding-top: 34px; }
   .course-content h1 { font-size: 31px; }.course-content h2 { font-size: 23px; }
   .instructor-grid { grid-template-columns: 1fr; }
+  .head-assistants-grid { grid-template-columns: 1fr; }
+  .head-assistant-card.lead-assistant { grid-column: auto; }
+  .teaching-assistants-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .material-footer { padding: 20px 24px; }
+}
+
+@media (max-width: 460px) {
+  .teaching-assistants-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; }.primary-sidebar { transition: none; } }

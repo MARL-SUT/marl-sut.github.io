@@ -8,10 +8,7 @@ const topNavigation = [
   "Course Notes",
   "Lectures",
   "Guests",
-  "Recitations",
-  "Workshops",
   "Homeworks",
-  "Prerequisites",
   "Exams",
   "Poster Session",
   "Resources",
@@ -24,10 +21,7 @@ const sideNavigation = [
   { label: "Course Notes", children: ["Introduction to RL", "Value-Based Methods", "Policy-Based Methods", "Advanced Topics", "Model-Based Methods", "Bandits"] },
   { label: "Lectures", children: ["Week 1", "Week 2", "Week 3", "Week 4"] },
   { label: "Guests" },
-  { label: "Recitations" },
-  { label: "Workshops" },
   { label: "Homeworks" },
-  { label: "Prerequisites", children: ["Deep Learning", "Game Theory", "Linear Algebra", "Numerical Optimization", "Information Theory", "Stochastic Processes"] },
   { label: "Exams" },
   { label: "Poster Session" },
   { label: "Resources" },
@@ -51,6 +45,8 @@ const tableOfContents = [
   ["teaching-assistants", "Teaching Assistants"],
   ["acknowledgements", "Acknowledgements"],
 ];
+
+const marlBookUrl = "https://www.marl-book.com/";
 
 function Placeholder({ text = "To be announced." }: { text?: string }) {
   return <p className="placeholder">{text}</p>;
@@ -86,7 +82,20 @@ export default function Home() {
 
         <nav className="tab-bar" aria-label="Course sections">
           <div className="tabs-inner">
-            {topNavigation.map((item, index) => <a className={index === 0 ? "active" : ""} href={index === 0 ? "#welcome" : "#"} key={item}>{item}</a>)}
+            {topNavigation.map((item, index) => {
+              const isBookLink = item === "Resources";
+              return (
+                <a
+                  className={index === 0 ? "active" : ""}
+                  href={isBookLink ? marlBookUrl : index === 0 ? "#welcome" : "#"}
+                  key={item}
+                  target={isBookLink ? "_blank" : undefined}
+                  rel={isBookLink ? "noreferrer" : undefined}
+                >
+                  {item}{isBookLink && " ↗"}
+                </a>
+              );
+            })}
           </div>
         </nav>
       </header>
@@ -111,7 +120,13 @@ export default function Home() {
           <nav>
             {sideNavigation.map((item, index) => (
               <div className={`nav-group ${index === 0 ? "selected" : ""}`} key={item.label}>
-                <a href={index === 0 ? "#welcome" : "#"}>{item.label}{item.children && <span>›</span>}</a>
+                <a
+                  href={item.label === "Resources" ? marlBookUrl : index === 0 ? "#welcome" : "#"}
+                  target={item.label === "Resources" ? "_blank" : undefined}
+                  rel={item.label === "Resources" ? "noreferrer" : undefined}
+                >
+                  {item.label}{item.label === "Resources" ? " ↗" : item.children && <span>›</span>}
+                </a>
                 {index === 0 && item.children && <div className="nav-children">{item.children.map((child) => <a className="current" href="#welcome" key={child}>{child}</a>)}</div>}
               </div>
             ))}
@@ -156,35 +171,72 @@ export default function Home() {
           <h2 id="schedule">Schedule</h2>
           <div className="schedule-placeholder"><span>Schedule</span><strong>To be announced</strong></div>
 
-          <h3 id="conceptual-practical">Conceptual/Practical</h3>
-          <Placeholder />
-
-          <h3 id="in-depth-theoretical">In-depth/Theoretical</h3>
-          <Placeholder />
-
-          <h3 id="guest-lectures">Guest Lectures</h3>
-          <Placeholder />
-
-          <h2 id="logistics-policies">Logistics &amp; Policies</h2>
-          <Placeholder />
-
           <h2 id="grading">Grading</h2>
-          <Placeholder />
-
-          <h3 id="main-components">Main Components</h3>
-          <Placeholder />
-
-          <h3 id="bonus-components">Bonus Components</h3>
-          <Placeholder />
+          <div className="schedule-placeholder"><span>Schedule</span><strong>To be announced</strong></div>
 
           <h2 id="head-assistants">Head Assistants</h2>
-          <Placeholder />
+          <div className="head-assistants-grid">
+            <div className="head-assistant-card lead-assistant">
+              <div className="staff-image-placeholder" aria-label="Image placeholder for Farbod Azimmohseni">FA</div>
+              <div>
+                <strong>Farbod Azimmohseni</strong>
+                <span>Head Assistant</span>
+              </div>
+            </div>
+
+            <div className="head-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder">?</div>
+              <div>
+                <strong>Behnia Soleymani</strong>
+                <span>Head Assistant (Project)</span>
+              </div>
+            </div>
+
+            <div className="head-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder">?</div>
+              <div>
+                <strong>Amir Qeysarbeigi</strong>
+                <span>Head Assistant (Project)</span>
+              </div>
+            </div>
+
+            <div className="head-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder">?</div>
+              <div>
+                <strong>Ramtin Moslemi</strong>
+                <span>Head Assistant (Quiz/Homework)</span>
+              </div>
+            </div>
+          </div>
 
           <h2 id="teaching-assistants">Teaching Assistants</h2>
-          <Placeholder />
+          <div className="teaching-assistants-grid">
+            <div className="teaching-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder for Amirhosein Rezaei">AR</div>
+              <strong>Amirhosein Rezaei</strong>
+            </div>
+            <div className="teaching-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder for Parsa Ghezelbash">PG</div>
+              <strong>Parsa Ghezelbash</strong>
+            </div>
+            <div className="teaching-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder for Soheil Sayah Varg">SSV</div>
+              <strong>Soheil Sayah Varg</strong>
+            </div>
+            <div className="teaching-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder for Narges Kari-Dolatabadi">NKD</div>
+              <strong>Narges Kari-Dolatabadi</strong>
+            </div>
+            <div className="teaching-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder for Amir Malek Hosseini">AMH</div>
+              <strong>Amir Malek Hosseini</strong>
+            </div>
+            <div className="teaching-assistant-card">
+              <div className="staff-image-placeholder" aria-label="Image placeholder for Arian Komaei koma">AKK</div>
+              <strong>Arian Komaei koma</strong>
+            </div>
+          </div>
 
-          <h2 id="acknowledgements">Acknowledgements</h2>
-          <Placeholder />
 
           <nav className="page-navigation" aria-label="Page navigation">
             <span />
